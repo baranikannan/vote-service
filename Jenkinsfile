@@ -13,6 +13,9 @@ node {
         stage("Checkout") {
             project.checkout()
         }
+        stage("setPermission") {
+            sh 'ls -ltr'
+        }        
         stage("Build") {
             project.runTests()
         }

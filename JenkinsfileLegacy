@@ -12,6 +12,7 @@ node {
 
         stage('Build') {
             try {
+                sh 'ls -la'
                 sh './mvnw clean verify'
                 sh './mvnw clean test'
             } finally {
