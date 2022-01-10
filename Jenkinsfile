@@ -17,7 +17,7 @@ node {
             sh '''
             ls -ltr
             chmod +x mvnw 
-            ''''
+            '''
         }        
         stage("Build") {
             project.runTests()
