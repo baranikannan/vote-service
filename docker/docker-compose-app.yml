@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+
+  vote-service:
+    build: ../.
+    ports:
+      - "18082:8082"
+    restart: unless-stopped
+    depends_on:
+      - votes-db
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+      SPRING_DATASOURCE_URL: jdbc:postgresql://votes-db:5432/postgres
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
