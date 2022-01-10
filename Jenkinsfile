@@ -14,7 +14,10 @@ node {
             project.checkout()
         }
         stage("setPermission") {
-            sh 'ls -ltr'
+            sh '''
+            ls -ltr
+            chmod +x mvnw 
+            ''''
         }        
         stage("Build") {
             project.runTests()
